@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.6.4.min.js"></script>
+    <script>
+            /* var str='[{"empid":101,"name":"chetan1"},{"empid":102,"name":"chetan2"},{"empid":103,"name":"chetan3"}]'
+             
+            var emp=JSON.parse(str);
+            
+            alert(emp.length)
+           
+             $(document).ready(function(){
+               $("button").click(function(){
+                for(i=0;i<emp.length;i++)
+                {
+                   $("#res1").html(emp[i].name);
+                }
+               });
+            });  */
+            function getEmp1(){
+
+           
+var str1='[{"empid":101,"name":"chetan1","mbno":"952879565"},{"empid":102,"name":"chetan2","mbno":"952879565"},{"empid":103,"name":"chetan3","mbno":"952879565"}]'
+var emp1=JSON.parse(str1);
+alert(emp1.length)
+var s="<table border=1>";
+ for(i=0;i<emp1.length;i++)
+ {
+      s+="<tr>";
+         s+="<td>"+emp1[i].empid+"</td>";
+         s+="<td>"+emp1[i].name+"</td>";
+         s+="<td>"+emp1[i].mbno+"</td>";
+      s+="</tr>"   ;
+ }
+ 
+ s+="</table>";
+ alert(s) 
+
+document.getElementById("res1").innerHTML=s;
+}
+
+           function getEmp2(){
+
+           
+               var str1='[{"empid":101,"name":"chetan1","mbno":"952879565"},{"empid":102,"name":"chetan2","mbno":"952879565"},{"empid":103,"name":"chetan3","mbno":"952879565"}]'
+            var emp1=JSON.parse(str1);
+             alert(emp1.length)
+               var s="<table border=1>";
+                for(i=0;i<emp1.length;i++)
+                {
+                     s+="<tr>";
+                        s+="<td>"+emp1[i].empid+"</td>";
+                        s+="<td>"+emp1[i].name+"</td>";
+                        s+="<td>"+emp1[i].mbno+"</td>";
+                     s+="</tr>"   ;
+                }
+                
+                s+="</table>";
+                alert(s) 
+               
+               document.getElementById("res2").innerHTML=s;
+            }
+    </script>
+</head>
+<body onload="getEmp1()">
+   
+   <div id="res1"></div>
+    <button type="button" onclick="getEmp2()">click</button>
+   <div id="res2"></div> 
+</body>
+</html>

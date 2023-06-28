@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <script src="jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#press").click(function(){
+                var url="http://localhost:9000/getcities?stateId="+$("#state").val()
+                $.get(url,function(data,status){
+                    if(status=="success")
+                    {
+                        $("#city").html(data)
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+     <form action="/getDataTable" method="post">
+        Name:<input type="text"/><br/>
+        DOB:<input type="date"/><br/>
+        Email:<input type="email"/><br/>
+        Qualification:<input type="text"/><br/>
+        <button type="button" id="press">submit</button>
+     </form>
+</body>
+</html>

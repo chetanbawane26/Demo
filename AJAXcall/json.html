@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <script src="jquery-3.6.4.min.js"></script>
+   <script>
+      $(document).ready(function(){
+         
+         $("#info").click(function(){
+            
+            var url = "http://localhost:9000/getemps";
+            var dno=$("#dept").val();
+            $.post(url,{deptno:dno},function(data,status){
+               if(status=="success")
+               {
+                  var emp=JSON.parse(data);
+                  alert(emp.length)
+                  var str="<table border=1>";
+                  for(i=0;i<emp.length;i++)
+                  {
+                     
+                     str+="<tr>";
+                        str+="<td>"+emp[i].EMPNO+"</td>";
+                        str+="<td>"+emp[i].ENAME+"</td>";
+                        str+="<td>"+emp[i].job+"</td>";
+                        str+="<td>"+emp[i].MGR+"</td>";
+                        str+="<td>"+emp[i].SAL+"</td>";
+                      str+="</tr>"  
+                  }
+
+                  $("#emps").html(str);
+
+               }
+            });
+           });
+      });
+      
+   </script>
+</head>
+<body>
+     <form>
+     Enter dept : <br/>
+     <input type="number" name="dept"  id="dept"/>
+     <br/>
+     <input type="button" value="check" id="info" />
+   </form> 
+   <div id="emps"></div>
+</body>
+</html>
